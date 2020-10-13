@@ -86,10 +86,12 @@ const allImages = [
     }
     const player1PointsElement = document.getElementById('player1-points');
     const player2PointsElement = document.getElementById('player2-points');
+    const state = document.getElementById('state');
     player1PointsElement.innerHTML = 0;
     player2PointsElement.innerHTML = 0;
+    console.log(state);
     setTimeout(() => {
-      alert(`${playerNames[currentPlayerId]} is starting`);
+      state.innerHTML = `${playerNames[currentPlayerId]} is starting`;
     }, 1000);
     return shuffle(allImages);
   };
@@ -113,7 +115,7 @@ const allImages = [
     board = initGame(turnManager);
     
     const playerHighlight = document.getElementById(turnManager.currentPlayerId);
-    playerHighlight.style.color = 'green';
+    playerHighlight.style.color = 'red';
   
     const allCards = document.getElementsByClassName("card");
     document.getElementById("reset").addEventListener("click", (event) => {
@@ -125,6 +127,7 @@ const allImages = [
     for (let i = 0; i < allCards.length; i++) {
       allCards[i].addEventListener("click", (event) => {
         if (canClick) {
+          state.style.display = 'none';
           const clickedCard = event.target;
           const currentCardId = clickedCard.getAttribute("id");
   
@@ -161,8 +164,8 @@ const allImages = [
             turnManager.nextPlayerId = turnManager.previousPlayerId;
             player1PointsElement.innerHTML = turnManager.points.player1;
             player2PointsElement.innerHTML = turnManager.points.player2;
-            document.getElementById(turnManager.currentPlayerId).style.color = 'green';
-            document.getElementById(turnManager.nextPlayerId).style.color = 'black';
+            document.getElementById(turnManager.currentPlayerId).style.color = 'red';
+            document.getElementById(turnManager.nextPlayerId).style.color = 'white';
           }
           clickedCard.style.backgroundImage = `url('${clickedCardImageUrl}')`;
           if (matchCounter === 10) {
@@ -178,8 +181,9 @@ const allImages = [
               } else {
                 result = "Its a tie";
               }
-              alert(`Buckets!!!!, ${result}`);
-            }, 1000);
+              state.style.display = 'unset';
+              state.innerHTML = `Buckets!!!!, ${result}`;
+            }, 400);
           }
         }
       });

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <div id=> Welcome to Eva's NBA Memory Game. 
+    <div id="welcome"> Welcome to Eva's NBA Memory Game. 
         Click on any two images and try to 
         match the NBA players. The player to get 
         the most matches wins the game.
         Good Luck!
+    </div>
+    <br>
+    <div>
+        <p id="state"></p>
     </div>
     <title>NBA-Memory Game</title>
     <link rel="stylesheet" href="style2.css" />
@@ -16,8 +20,8 @@
     <h2>NBA Memory Game</h2>
     <div style="background-image: url('img/nba background.jpg');">
         <div id="picbox">
-            <p id="player1">Player 1: <span id="player1-points">0</span></p>
-            <p id="player2">Player 2: <span id="player2-points">0</span></p>
+            <p id="player1">Player 1: <span id="player1-points">0</span> pts</p>
+            <p id="player2">Player 2: <span id="player2-points">0</span> pts</p>
             <span id="boxbuttons">
                 <span class="button" id="reset">Reset</span>
             </span>

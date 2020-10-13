@@ -24,9 +24,7 @@ body {
   }
   div {
     font-size: 24px;
-    color: rgb(rgb(255, 0, 0));
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color:blue;
+    color: white;
     text-align: justify;
   }
   #picbox {
@@ -81,4 +79,9 @@ body {
   }
   #boxbuttons .button:hover {
     background: #eb2623;
+  }
+
+  p {
+    color: white;
+    font-weight: bolder;
   }
